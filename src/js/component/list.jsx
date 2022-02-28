@@ -5,6 +5,7 @@ let auxList = [];
 const List = () => {
 	const [value, setValue] = useState("");
 	const [list, setList] = useState([]);
+	const [total, setTotal] = useState(0);
 
 	const renderList = (item, i) => {
 		return (
@@ -19,6 +20,7 @@ const List = () => {
 
 						auxList = newList;
 						setList(auxList);
+						setTotal(auxList.length);
 					}}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +47,7 @@ const List = () => {
 		<div className="mt-5 d-flex justify-content-center align-items-center">
 			<div className="text-center" style={{ width: "50%" }}>
 				<h1>Todo List</h1>
+				<h3>{`Number of elements: ${total}`}</h3>
 				<ul className="list-group">
 					<li className="list-group-item">
 						<input
@@ -63,6 +66,7 @@ const List = () => {
 									setList(auxList);
 									setValue("");
 									e.target.value = "";
+									setTotal(auxList.length);
 								}
 							}}
 						/>
