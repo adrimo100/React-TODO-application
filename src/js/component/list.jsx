@@ -14,9 +14,7 @@ const List = () => {
 				<button
 					className="btn btn-danger float-end"
 					onClick={(e) => {
-						const newList = auxList.filter(
-							(i) => i.val != item.val && i.id != item.id
-						);
+						const newList = auxList.filter((i) => i.id != item.id);
 
 						auxList = newList;
 						setList(auxList);
